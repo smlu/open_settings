@@ -1,3 +1,7 @@
+## open_settings 1.0.3
+move to AndroidX and update the flutter engine
+<br/>
+
 ## open_settings 1.0.2
 Add openMainSetting() and openDateSetting() and openDisplaySetting() to access platform specific 'main setting' , 'date setting' , 'display setting' settings menu.
 <br/>

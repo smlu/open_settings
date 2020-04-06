@@ -24,8 +24,6 @@ public class OpenSettingsPlugin implements MethodCallHandler {
     public void onMethodCall(MethodCall call, Result result) {
         String setting = (String) call.arguments;
         String target;
-        System.out.println("sssssssssssssss");
-
         if (call.method.equals("openSettings")) {
             switch (setting) {
                 case "wifi":

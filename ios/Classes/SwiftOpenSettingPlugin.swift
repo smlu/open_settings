@@ -11,10 +11,15 @@ public class SwiftOpenSettingPlugin: NSObject, FlutterPlugin {
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
         case "openSettings":
-            if let url = URL(string: UIApplicationOpenSettingsURLString) {
-                if (UIApplication.shared.canOpenURL(url)) {
+            #if swift(>=4.2)
+            let url = URL(string: UIApplication.openSettingsURLString)
+            #else
+            let url = URL(string: UIApplicationOpenSettingsURLString)
+            #endif
+            if(url != nil){
+                if (UIApplication.shared.canOpenURL(url!)) {
                     if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
                     }
                     result(nil)
                 }
